@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send("It's alive!");
+});
+
 // Route to handle incoming webhook calls from Dropbox
 app.post('/dropbox/webhook', (req, res) => {
   // Make sure this is a valid request from Dropbox
