@@ -19,6 +19,7 @@ app.post('/dropbox/webhook', (req, res) => {
   const signature = req.headers['x-dropbox-signature'];
   const hmacSignature = crypto.createHmac('sha256', process.env.APP_SECRET).update(JSON.stringify(req.body)).digest('hex');
   if (signature !== hmacSignature) {
+    console.log("invalid signature!");
     res.status(403).send('Invalid signature');
     return;
   }
@@ -29,6 +30,7 @@ app.post('/dropbox/webhook', (req, res) => {
     processUser(account);
   });
 
+  console.log("success!");
   // Respond with an empty body
   res.status(200).send('');
 });
