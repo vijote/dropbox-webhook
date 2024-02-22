@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 
 // Route to handle incoming webhook calls from Dropbox
 app.post('/dropbox/webhook', (req, res) => {
+  console.log(req.body);
   // Make sure this is a valid request from Dropbox
   const signature = req.headers['x-dropbox-signature'];
   const hmacSignature = crypto.createHmac('sha256', process.env.APP_SECRET).update(req.body).digest('hex');
