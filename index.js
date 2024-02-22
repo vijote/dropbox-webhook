@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  console.log("env variables:", process.env);
   res.send("It's alive!");
 });
 
