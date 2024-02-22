@@ -17,7 +17,7 @@ app.post('/dropbox/webhook', (req, res) => {
   console.log(req.body);
   // Make sure this is a valid request from Dropbox
   const signature = req.headers['x-dropbox-signature'];
-  const hmacSignature = crypto.createHmac('sha256', process.env.APP_SECRET).update(req.body).digest('hex');
+  const hmacSignature = crypto.createHmac('sha256', process.env.APP_SECRET).update(JSON.stringify(req.body)).digest('hex');
   if (signature !== hmacSignature) {
     res.status(403).send('Invalid signature');
     return;
