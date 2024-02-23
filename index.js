@@ -51,6 +51,7 @@ app.post('/dropbox/webhook', (req, res) => {
 });
 
 app.get('/dropbox/webhook', (req, res) => {
+  console.log('challenge received!');
   // Get the challenge parameter from the query string
   const challenge = req.query.challenge;
 
