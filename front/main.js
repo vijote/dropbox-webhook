@@ -13,9 +13,7 @@ form.addEventListener('submit', (event => {
 }))
 
 const dbxAuth = new DbxAuth({
-    clientId: '25hoe7kv7ll06th',
-    clientSecret: 'f1kn20rcb0d7xjc',
-    accessToken: 'sl.BwLLqNzavoMioGYDmtGYVfdjyoPnyp_BoU3MWidCAN_2QzwzM4rIdRt2m0ElHjI87Ws4CcMCL4Ljm5zojhy4Rk8UXY2O0ZEv-PJVl4eta8clRo8PwDqu85fSIFfLvoC___6xHi9o4rJz',
+    
 })
 
 async function uploadFileInSession(file) {
@@ -80,7 +78,7 @@ async function closeUpload(chunk, offset) {
         },
         contents: chunk,
         commit: {
-            path: '/metal.mp4'
+            path: '/metal2.mp4'
         }
     })
 
