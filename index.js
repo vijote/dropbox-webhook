@@ -8,6 +8,18 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  let rawData = '';
+  req.setEncoding('utf-8');
+  req.on('data', chunk => {
+    rawData += chunk;
+  });
+  req.on('end', () => {
+    req.rawBody = rawData;
+    next();
+  });
+});
+
 app.get('/', (req, res) => {
   res.send("It's alive!");
 });
