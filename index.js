@@ -16,9 +16,11 @@ app.get('/', (req, res) => {
 // Route to handle incoming webhook calls from Dropbox
 app.post('/dropbox/webhook', (req, res) => {
   try {
+    console.log('REQ BODY:', req.body);
+    
     const { accounts } = req.body.list_folder;
     accounts.forEach(() => {
-      console.log('TODO: Handle account changes');
+      // console.log('TODO: Handle account changes');
     });
 
     console.log('success!');
